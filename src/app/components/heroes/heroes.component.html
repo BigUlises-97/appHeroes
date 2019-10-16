@@ -3,23 +3,34 @@
     <hr>
 </div>
 
+<!-- TRABAJANDO CON COMPONENTES ESPECIALIZADOS -->
+
 <div class="card-columns">
+    <app-heroe-tarjeta *ngFor="let heroe of heroes; let i = index" [heroe]="heroe" [index]="i" (heroeSeleccionado)="verHeroe($event)"></app-heroe-tarjeta>
+</div>
 
-    <div class="card  animated fadeIn" *ngFor="let heroe of heroes; let i = index">
-        <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
-        <div class="card-body">
-            <h4 class="card-title">{{heroe.nombre}}</h4>
-            <p class="card-text">{{heroe.bio}}</p>
-            <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
 
-            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">
-                Ver más...
-            </button>
+<!-- 
 
-            <!--
-            <a [routerLink]="['/heroe',i]" routerLinkActive="router-link-active" class="btn btn-outline-primary btn-block">Ver más...</a>
-            -->
+    -- ORIGINAL CODE --
+
+
+    <div class="card-columns">
+    
+        <div class="card  animated fadeIn" *ngFor="let heroe of heroes; let i = index">
+            <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
+            <div class="card-body">
+                <h4 class="card-title">{{heroe.nombre}}</h4>
+                <p class="card-text">{{heroe.bio}}</p>
+                <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+    
+                <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">
+                    Ver más...
+                </button>
+
+            </div>
         </div>
+    
     </div>
 
-</div>
+-->
